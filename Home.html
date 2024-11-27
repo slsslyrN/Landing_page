@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Descarga la APK</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #333;
+    }
+    p {
+      color: #555;
+    }
+    .btn-download {
+      display: none;
+      background-color: #28a745;
+      color: white;
+      padding: 15px 20px;
+      text-decoration: none;
+      font-size: 16px;
+      border-radius: 5px;
+      margin-top: 20px;
+      transition: background-color 0.3s;
+    }
+    .btn-download:hover {
+      background-color: #218838;
+    }
+    .warning {
+      color: red;
+      margin-top: 20px;
+    }
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      const downloadButton = document.querySelector(".btn-download");
+      const warningMessage = document.querySelector(".warning");
+
+      if (/android|iphone|ipad|ipod|windows phone/i.test(userAgent)) {
+        // Mostrar botón de descarga si se accede desde móvil
+        downloadButton.style.display = "inline-block";
+        warningMessage.style.display = "none";
+      } else {
+        // Mostrar mensaje de advertencia si no es un dispositivo móvil
+        warningMessage.style.display = "block";
+      }
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Descarga nuestra APK</h1>
+    <p>Haz clic en el botón de abajo para descargar la aplicación.</p>
+    <a href="app-release.apk" class="btn-download" download>Descargar APK</a>
+    <p class="warning">Esta descarga solo está disponible desde dispositivos móviles.</p>
+  </div>
+</body>
+</html>
